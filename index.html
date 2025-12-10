@@ -7,40 +7,63 @@
 </head>
 <body>
     <script>
-        let humanScore = 0;
-        let computerScore = 0;
+    let humanScore =0;
+    let computerScore = 0;
+
        function getComputerChoice(){
         let choice = Math.floor(Math.random() * 3);
         if(choice==0){
-            return "Rock";
+            return "rock";
         }
         else if (choice==1){
-            return "Paper";
+            return "paper";
         }
         else {
-            return "Scissors";
+            return "scissors";
         }
-       }
-
-       function getHumanChoice(){
+      }
+        function getHumanChoice(){
         let userChoice = prompt("Enter your choice as Rock, Paper or Scissors");
+        return userChoice;
+       }
+    
+
+       function playGame(){
+
+            
+        function playRound(humanChoice, computerChoice){
+               if (humanChoice.toLowerCase()== "rock" && computerChoice == "rock" || humanChoice.toLowerCase()== "paper" && computerChoice == "paper" || humanChoice.toLowerCase()== "scissors" && computerChoice == "scissors"){
+                  console.log("Its a tie");
+                }
+               else if (humanChoice.toLowerCase()== "rock" && computerChoice == "paper" || humanChoice.toLowerCase()== "paper" && computerChoice == "scissors"  || humanChoice.toLowerCase()== "scissors" && computerChoice == "rock"){
+                  console.log("You lost! Better luck next time");
+                  computerScore = computerScore+1;
+                }
+                else { 
+                  console.log("You won!!")
+                  humanScore = humanScore + 1;
+                }
+               }
+         
+               
+       const humanSelection = getHumanChoice();
+       const computerSelection = getComputerChoice();
+
+       playRound(humanSelection, computerSelection);
+
+       }
+       for(i = 0 ;i<5;i++){
+       playGame();
+       }
+       console.log("User score " + humanScore);
+       console.log("Computer Score " + computerScore); 
+       if(humanScore > computerScore){
+        console.log("You win by majority!!");
+       }  
+       else{
+        console.log("Computer wins by Majority!!");
        }
 
-       function playRound(humanChoice, computerChoice){
-        if (humanChoice.toLowerCase()== "rock" && computerChoice == "Rock" || humanChoice.toLowerCase()== "paper" && computerChoice == "Paper" || humanChoice.toLowerCase()== "scissors" && computerChoice == "Scissors"){
-            return "Its a tie"
-        }
-        else if (humanChoice.toLowerCase()== "rock" && computerChoice == "Paper" || humanChoice.toLowerCase()== "paper" && computerChoice == "Scissors"  || humanChoice.toLowerCase()== "scissors" && computerChoice == "Rock"){
-            return "You lost! Better luck next time"
-            computerScore++;
-        }
-        else { 
-            return "You won!!"
-            humanChoice++;
-        }
-       }
-
-       
     </script>
 </body>
 </html>
