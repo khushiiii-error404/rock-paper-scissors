@@ -25,6 +25,22 @@
        function getHumanChoice(){
         let userChoice = prompt("Enter your choice as Rock, Paper or Scissors");
        }
+
+       function playRound(humanChoice, computerChoice){
+        if (humanChoice.toLowerCase()== "rock" && computerChoice == "Rock" || humanChoice.toLowerCase()== "paper" && computerChoice == "Paper" || humanChoice.toLowerCase()== "scissors" && computerChoice == "Scissors"){
+            return "Its a tie"
+        }
+        else if (humanChoice.toLowerCase()== "rock" && computerChoice == "Paper" || humanChoice.toLowerCase()== "paper" && computerChoice == "Scissors"  || humanChoice.toLowerCase()== "scissors" && computerChoice == "Rock"){
+            return "You lost! Better luck next time"
+            computerScore++;
+        }
+        else { 
+            return "You won!!"
+            humanChoice++;
+        }
+       }
+
+       
     </script>
 </body>
 </html>
