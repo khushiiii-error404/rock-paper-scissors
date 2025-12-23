@@ -1,0 +1,54 @@
+ let humanScore =0;
+    let computerScore = 0;
+
+       function getComputerChoice(){
+        let choice = Math.floor(Math.random() * 3);
+        if(choice==0){
+            return "rock";
+        }
+        else if (choice==1){
+            return "paper";
+        }
+        else {
+            return "scissors";
+        }
+      }
+        function getHumanChoice(){
+        let userChoice = prompt("Enter your choice as Rock, Paper or Scissors");
+        return userChoice;
+       }
+    
+
+       function playGame(){
+
+            
+        function playRound(humanChoice, computerChoice){
+               if (humanChoice.toLowerCase()== "rock" && computerChoice == "rock" || humanChoice.toLowerCase()== "paper" && computerChoice == "paper" || humanChoice.toLowerCase()== "scissors" && computerChoice == "scissors"){
+                  console.log("Its a tie");
+                }
+               else if (humanChoice.toLowerCase()== "rock" && computerChoice == "paper" || humanChoice.toLowerCase()== "paper" && computerChoice == "scissors"  || humanChoice.toLowerCase()== "scissors" && computerChoice == "rock"){
+                  console.log("You lost! Better luck next time");
+                  computerScore = computerScore+1;
+                }
+                else { 
+                  console.log("You won!!")
+                  humanScore = humanScore + 1;
+                }
+               }
+         
+               
+       const humanSelection = getHumanChoice();
+       const computerSelection = getComputerChoice();
+
+       playRound(humanSelection, computerSelection);
+
+       }
+
+       console.log("User score " + humanScore);
+       console.log("Computer Score " + computerScore); 
+       if(humanScore > computerScore){
+        console.log("You win by majority!!");
+       }  
+       else{
+        console.log("Computer wins by Majority!!");
+       }
